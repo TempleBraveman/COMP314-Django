@@ -1,35 +1,36 @@
+# Python artifacts
 *.pyc
 __pycache__/
-.git/
+
+# Virtual environments
 .venv/
 venv/
-media/
-staticfiles/
-*.sqlite3
 
-# Ignore Git files
-.git
+# Git
+.git/
 .gitignore
 
-# Ignore Jenkins pipeline config (Jenkinsfile doesn’t affect Docker build)
-Jenkinsfile
-
-# Ignore README or markdown files
-*.md
-
-# Ignore build/test artifacts
+# App artifacts
+*.sqlite3
 *.log
 *.tmp
 *.swp
 
-# Ignore OS files
+# Media and static files
+media/
+staticfiles/
+
+# Docs and config
+*.md
+Jenkinsfile
+
+# OS files
 .DS_Store
 Thumbs.db
 
-# Ignore dependency folders (if applicable)
-node_modules
-__pycache__
+# Node dependencies
+node_modules/
 
-# Ignore IDE config
-.vscode
-.idea
+# IDE/editor settings
+.vscode/
+.idea/
