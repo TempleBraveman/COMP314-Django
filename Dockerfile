@@ -14,11 +14,16 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
-# Ensure gunicorn is installed (if not already in requirements.txt)
+# Ensure gunicorn is installed if not already in requirements.txt
 RUN python3 -m pip install gunicorn
 
+# Copy the entire project to /app
 COPY . /app/
 
+# Set working directory to where manage.py is located
+WORKDIR /app/mysite
+
+# Run migrations and collect static files
 RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
 
@@ -32,4 +37,4 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 
 # Step 2: Run Gunicorn and Nginx together
-CMD sh -c "gunicorn --chdir /app hello_world.wsgi:application --bind 127.0.0.1:8000 & nginx -g 'daemon off;'"
+CMD ["sh", "-c", "gunicorn --chdir /app hello_world.wsgi:application --bind 0.0.0.0:8000 & nginx -g 'daemon off;'"]
