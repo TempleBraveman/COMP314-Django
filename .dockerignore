@@ -1,22 +1,16 @@
-env
-./env
-./env/
-
-
-# Python artifacts
+# Python bytecode
 *.pyc
 __pycache__/
 
 # Virtual environments
+env/
 .venv/
 venv/
-env/
 
 # Git
 .git/
-.gitignore
 
-# App artifacts
+# Databases and logs
 *.sqlite3
 *.log
 *.tmp
@@ -26,17 +20,13 @@ env/
 media/
 staticfiles/
 
-# Docs and config
-*.md
-Jenkinsfile
-
-# OS files
+# OS-generated files
 .DS_Store
 Thumbs.db
 
-# Node dependencies
+# Node
 node_modules/
 
-# IDE/editor settings
+# IDE/editor configs
 .vscode/
 .idea/
