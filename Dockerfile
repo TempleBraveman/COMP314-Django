@@ -28,7 +28,7 @@ RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
 
 # Set Django settings module
-ENV DJANGO_SETTINGS_MODULE=hello_world.settings
+ENV DJANGO_SETTINGS_MODULE=mysite.settings
 
 # Copy Nginx config to the correct path
 COPY nginx.conf /etc/nginx/conf.d/default.conf
@@ -37,4 +37,4 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 
 # Step 2: Run Gunicorn and Nginx together
-CMD ["sh", "-c", "gunicorn --chdir /app hello_world.wsgi:application --bind 0.0.0.0:8000 & nginx -g 'daemon off;'"]
+CMD ["sh", "-c", "gunicorn --chdir /app mysite.wsgi:application --bind 0.0.0.0:8000 & nginx -g 'daemon off;'"]
