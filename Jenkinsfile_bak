@@ -4,7 +4,7 @@ pipeline {
     environment {
         EC2_USER = "ec2-user"  // Or ubuntu, depending on your AMI
         EC2_HOST = "54.242.75.181" //(MODIFY)
-        EC2_KEY = credentials('ec2-ssh-private-key')  // Jenkins credential with SSH private key (MODIFY)
+        EC2_KEY = credentials('54.242.75.181')  // Jenkins credential with SSH private key (MODIFY)
         PROJECT_DIR = "/home/ec2-user/pythonprojects/django_polls"  // Path to your Django app (MODIFY)
         
     }
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Use SSH to run commands on the EC2 instance
-                    sshagent (credentials: ['ec2-ssh-private-key']) {
+                    sshagent (credentials: ['54.242.75.181']) {
                         sh """
                         ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} '
                             cd ${PROJECT_DIR}
