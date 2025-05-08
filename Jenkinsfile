@@ -7,7 +7,7 @@ pipeline {
         EC2_HOST = "54.242.75.181" //(MODIFY: Enter your EC2 instance public IP address)
         EC2_KEY = credentials('54.242.75.181')  // (MODIFY: ensure you create this credential in Jenkins. This is the SSH private key of your EC2 instance)
         DOCKER_CREDS = 'docker-hub-creds' // Set up Jenkins credentials for Docker Hub. Ensure the ID is 'docker-hub-credentials'
-        PROJECT_DIR = "/home/ec2-user/pythonprojects/django_polls"  // (MODIFY: enter the path to your Django project on the EC2 instance)
+        PROJECT_DIR = "/home/ec2-user/pythonprojects/COMP314-Django"  // (MODIFY: enter the path to your Django project on the EC2 instance)
     }
 
     //triggers {
